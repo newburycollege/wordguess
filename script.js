@@ -37,12 +37,12 @@ function createLetterButtons() {
 
 function handleGuess(event) {
     const guessedLetter = event.target.textContent;
-    event.target.disabled = true;
     
     if (secretWord.includes(guessedLetter)) {
         updateDisplayedWord(guessedLetter);
     } else {
         remainingAttempts--;
+        event.target.disabled = true; // Disable incorrect guessed letter
         updateProgressBar();
     }
 
@@ -67,12 +67,18 @@ function updateProgressBar() {
     const progressPercentage = (remainingAttempts / 6) * 100;
     progressBar.style.width = `${progressPercentage}%`;
 
-    if (progressPercentage > 50) {
-        progressBar.style.backgroundColor = 'green';
-    } else if (progressPercentage > 25) {
-        progressBar.style.backgroundColor = 'orange';
-    } else {
-        progressBar.style.backgroundColor = 'red';
+    if (remainingAttempts === 5) {
+        progressBar.style.backgroundColor = '#66cc00'; // Light Green
+    } else if (remainingAttempts === 4) {
+        progressBar.style.backgroundColor = '#ffcc00'; // Yellow
+    } else if (remainingAttempts === 3) {
+        progressBar.style.backgroundColor = '#ff9900'; // Orange
+    } else if (remainingAttempts === 2) {
+        progressBar.style.backgroundColor = '#ff6600'; // Dark Orange
+    } else if (remainingAttempts === 1) {
+        progressBar.style.backgroundColor = '#ff3300'; // Red Orange
+    } else if (remainingAttempts === 0) {
+        progressBar.style.backgroundColor = 'red'; // Red
     }
 }
 
