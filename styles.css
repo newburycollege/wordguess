@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #282c34;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.input-section, .game-section {
+    margin-bottom: 20px;
+}
+
+input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #61dafb;
+    border: none;
+    color: #282c34;
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+
+#rocket-img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+#word-display {
+    font-size: 24px;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+}
+
+#message {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#letters {
+    margin-top: 20px;
+}
+
+.letter-btn {
+    padding: 10px;
+    margin: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #61dafb;
+    border: none;
+    color: #282c34;
+    display: inline-block;
+    width: 40px;
+}
+
+.letter-btn:hover {
+    background-color: #21a1f1;
+}
+
+.remaining-attempts {
+    margin-top: 20px;
+    font-size: 18px;
+}
