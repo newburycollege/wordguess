@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Launch Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Rocket Launch Hangman Game</h1>
+        <div class="input-section">
+            <label for="secret-word">Enter the Secret Word:</label>
+            <input type="password" id="secret-word" placeholder="Enter word here" maxlength="20">
+            <button id="start-game">Go</button>
+        </div>
+
+        <div class="game-section" id="game-section" style="display: none;">
+            <div class="rocket">
+                <img src="rocket.png" alt="Rocket" id="rocket-img">
+            </div>
+            <div id="word-display"></div>
+            <div id="message"></div>
+            <div id="letters"></div>
+            <div class="remaining-attempts">Fuel Remaining: <span id="attempts">6</span></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
