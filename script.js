@@ -14,7 +14,8 @@ function startGame() {
     remainingAttempts = 6;
 
     document.getElementById('word-display').textContent = displayedWord;
-    document.getElementById('attempts').textContent = remainingAttempts;
+    document.getElementById('progress-bar').style.width = '100%';
+    document.getElementById('progress-bar').style.backgroundColor = 'green';
     document.getElementById('game-section').style.display = 'block';
     document.getElementById('message').textContent = '';
 
@@ -42,8 +43,7 @@ function handleGuess(event) {
         updateDisplayedWord(guessedLetter);
     } else {
         remainingAttempts--;
-        document.getElementById('attempts').textContent = remainingAttempts;
-        moveRocketDown();
+        updateProgressBar();
     }
 
     checkGameStatus();
@@ -62,15 +62,23 @@ function updateDisplayedWord(letter) {
     document.getElementById('word-display').textContent = displayedWord;
 }
 
-function moveRocketDown() {
-    const rocketImg = document.getElementById('rocket-img');
-    const topPosition = parseInt(window.getComputedStyle(rocketImg).top || 0);
-    rocketImg.style.top = `${topPosition + 20}px`;
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    const progressPercentage = (remainingAttempts / 6) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+
+    if (progressPercentage > 50) {
+        progressBar.style.backgroundColor = 'green';
+    } else if (progressPercentage > 25) {
+        progressBar.style.backgroundColor = 'orange';
+    } else {
+        progressBar.style.backgroundColor = 'red';
+    }
 }
 
 function checkGameStatus() {
     if (displayedWord === secretWord) {
-        document.getElementById('message').textContent = 'Congratulations! You saved the rocket!';
+        document.getElementById('message').textContent = 'Congratulations! You guessed the word!';
         disableAllButtons();
     } else if (remainingAttempts === 0) {
         document.getElementById('message').textContent = `Game Over! The word was "${secretWord}".`;
