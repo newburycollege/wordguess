@@ -40,9 +40,11 @@ function handleGuess(event) {
     
     if (secretWord.includes(guessedLetter)) {
         updateDisplayedWord(guessedLetter);
+        event.target.style.backgroundColor = 'green'; // Correct guess turns green
     } else {
         remainingAttempts--;
         event.target.disabled = true; // Disable incorrect guessed letter
+        event.target.style.backgroundColor = 'red'; // Incorrect guess turns red
         updateProgressBar();
     }
 
